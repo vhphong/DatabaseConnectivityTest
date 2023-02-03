@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class Admin {
 
 
-    public static void mySqlConnectivitySuccess(String databaseType) {
+    public static void databaseConnectivitySuccess(String databaseType) {
         System.out.println("Connectivity to the " + databaseType + " database is successful.");
     }
 
@@ -14,7 +14,7 @@ public class Admin {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Admin.mySqlConnectivitySuccess("MySql");
+            Admin.databaseConnectivitySuccess("MySql");
 
             return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/computerpart", "root", "phong0222");
         } catch (Exception e) {
@@ -24,7 +24,24 @@ public class Admin {
         }
     }
 
+
+    public static Connection PostgreSqlconnection() {
+        try {
+            Class.forName("com.postgresql.cj.jdbc.Driver");
+
+            Admin.databaseConnectivitySuccess("PostgreSql");
+
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/revbankdb", "postgres", "phong0222");
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            return null;
+        }
+    }
+
+
     public static void main(String args[]) {
         Admin.MySqlconnection();
+        Admin.PostgreSqlconnection();
     }
 }
