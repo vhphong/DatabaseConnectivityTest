@@ -27,7 +27,7 @@ public class Admin {
 
     public static Connection PostgreSqlconnection() {
         try {
-            Class.forName("com.postgresql.cj.jdbc.Driver");
+            Class.forName("org.postgresql.Driver");
 
             Admin.databaseConnectivitySuccess("PostgreSql");
 
