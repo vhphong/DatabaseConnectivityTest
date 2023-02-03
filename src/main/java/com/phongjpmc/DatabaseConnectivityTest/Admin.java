@@ -22,7 +22,6 @@ public class Admin {
 
             return null;
         }
-
     }
 
     public static void main(String args[]) {
